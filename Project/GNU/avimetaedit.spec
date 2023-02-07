@@ -30,8 +30,8 @@ BuildRequires:	update-desktop-files
 %endif
 BuildRequires:  automake
 BuildRequires:  autoconf
-%if 0%{?rhel_version} >= 800 || 0%{?centos_version} >= 800
-BuildRequires:  gdb
+%if 0%{?rhel} >= 8
+BuildRequires:  alternatives
 %endif
 %if 0%{?mageia}
 BuildRequires:  sane-backends-iscan
@@ -52,7 +52,7 @@ AVI MetaEdit provides this service:
 Summary:	Supplies technical and tag information about a video or audio file (GUI)
 Group:		Productivity/Multimedia/Other
 
-%if 0%{?fedora_version} || 0%{?centos} >= 7
+%if 0%{?fedora_version} || 0%{?rhel} >= 7
 BuildRequires:  pkgconfig(Qt5)
 %else
 %if 0%{?mageia}
@@ -64,14 +64,8 @@ BuildRequires:  libqt5base5-devel
 %else
 %if 0%{?suse_version} >= 1200
 BuildRequires: libqt5-qtbase-devel
-%else
-BuildRequires: libqt4-devel
 %endif
 %endif
-%endif
-
-%if 0%{?rhel} >= 7
-BuildRequires:  gnu-free-sans-fonts
 %endif
 
 %description gui
@@ -96,11 +90,7 @@ export CXXFLAGS="-g $RPM_OPT_FLAGS"
 pushd Project/GNU/CLI
 	%__chmod +x autogen
 	./autogen
-	%if 0%{?mageia} >= 6
-		%configure --disable-dependency-tracking
-	%else
-		%configure
-	 %endif
+	%configure
 
 	%__make %{?jobs:-j%{jobs}}
 popd
