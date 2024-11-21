@@ -17,7 +17,7 @@ mkdir AVIMetaEdit_GUI_Windows_x64
 
 
 @rem --- Copying : Exe ---
-copy  ..\Project\MSVC2017\GUI\x64\Release\AVI_MetaEdit_GUI.exe AVIMetaEdit_GUI_Windows_x64\avimetaedit-gui.exe
+copy  ..\Project\MSVC2022\GUI\x64\Release\AVI_MetaEdit_GUI.exe AVIMetaEdit_GUI_Windows_x64\avimetaedit-gui.exe
 
 @rem --- Copying : Information files ---
 copy ..\License.html AVIMetaEdit_GUI_Windows_x64\

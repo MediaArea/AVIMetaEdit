@@ -15,7 +15,7 @@ rmdir AVIMetaEdit_CLI_Windows_i386 /S /Q
 mkdir AVIMetaEdit_CLI_Windows_i386
 
 rem --- Copying : Exe ---
-xcopy ..\Project\MSVC2017\CLI\Win32\Release\avimetaedit.exe AVIMetaEdit_CLI_Windows_i386\ /S
+xcopy ..\Project\MSVC2022\CLI\Win32\Release\avimetaedit.exe AVIMetaEdit_CLI_Windows_i386\ /S
 
 rem --- Copying : Plugins ---
 xcopy ..\Source\Resource\Plugin\Custom\* AVIMetaEdit_CLI_Windows_i386\Plugin\Custom\ /S
