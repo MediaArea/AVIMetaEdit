@@ -29,6 +29,9 @@
 #include <QDesktopWidget>
 #include <QApplication>
 #include <QMessageBox>
+#include <iomanip>
+#include <sstream>
+#include <locale>
 #include <ctime>
 using namespace std;
 //---------------------------------------------------------------------------
@@ -233,9 +236,10 @@ void GUI_Main_xxxx_DateDialog::OnCalendar_Changed()
         Time.tm_wday=Calendar->selectedDate().dayOfWeek()==Qt::Sunday?0:Calendar->selectedDate().dayOfWeek();
         Time.tm_yday=Calendar->selectedDate().dayOfYear();
         Time.tm_isdst=-1;
-        QString Time_Q(asctime(&Time));
-        Time_Q.truncate(24);
-        TextEdit->setPlainText(Time_Q);
+        stringstream ss;
+        ss.imbue(std::locale("C"));
+        ss << put_time(&Time, "%a %b %d %H:%M:%S %Y");
+        TextEdit->setPlainText(QString().fromLatin1(ss.str().c_str()));
         return;
     }
     
