@@ -37,6 +37,7 @@ CONFIG += qt release
 CONFIG += no_keywords
 
 DEFINES += TIXML_USE_STL _LARGE_FILES _FILE_OFFSET_BITS=64
+DEFINES -= UNICODE _UNICODE # Unicode build not supported yet
 
 HEADERS = \
     ../../Source/FromMediaInfo/FromMediaInfo.h \
